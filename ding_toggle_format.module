@@ -59,12 +59,21 @@ function ding_toggle_format_render_link() {
         )
       )
     );
+    // if the image rendered ok, render link using above variables
+    $format_link = ( $format_image ) ? $format_prefix . l($format_image, '#',
+      array(
+        'html' => TRUE,
+        'attributes' => array(
+          'title' => $image_title,
+          'id' => 'ding-toggle-format',
+          'class' => 'ding-toggle-format-short'
+        )
+      )
+    ) : NULL;
   }
   else {
-    $format_image = theme('image');
+    $format_link = $format_prefix;
   }
-  // if the image rendered ok, render link using above variables
-  $format_link = ( $format_image ) ? $format_prefix . l($format_image, '#', array('html' => TRUE, 'attributes' => array('title' => $image_title, 'id' => 'ding-toggle-format', 'class' => 'ding-toggle-format-short'))) : NULL;
 
   return $format_link;
 }
