@@ -49,27 +49,23 @@ function ding_toggle_format_render_link() {
 
   // render image html using theme_image (returns NULL if file doesn't exist)
   if ($view_type != 'collection') {
-    $format_image = theme('image',
-      array(
-        'path' => $image_path,
-        'alt' => $image_alt,
-        'title' => $image_title,
-        'attributes' => array(
-          'id' => 'ding-toggle-format-image'
-        )
-      )
-    );
+    $format_image = theme('image', array(
+      'path' => $image_path,
+      'alt' => $image_alt,
+      'title' => $image_title,
+      'attributes' => array(
+        'id' => 'ding-toggle-format-image',
+      ),
+    ));
     // if the image rendered ok, render link using above variables
-    $image_link = l($format_image, '#',
-      array(
-        'html' => TRUE,
-        'attributes' => array(
-          'title' => $image_title,
-          'id' => 'ding-toggle-format',
-          'class' => 'ding-toggle-format-short'
-        )
-      )
-    );
+    $image_link = l($format_image, '#', array(
+      'html' => TRUE,
+      'attributes' => array(
+        'title' => $image_title,
+        'id' => 'ding-toggle-format',
+        'class' => 'ding-toggle-format-short',
+      ),
+    ));
 
     $format_link .= $image_link;
   }
