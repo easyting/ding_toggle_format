@@ -13,7 +13,13 @@
   Drupal.behaviors.readyFormat = {
     attach: function(context, settings) {
       $('#ding-toggle-format', context).ready(function() {
-        var format = ($.cookie("ding_toggle_format")) ? $.cookie("ding_toggle_format") : 'long';
+        var format;
+        if ($(window).width() < 740) {
+          format = ($.cookie("ding_toggle_format")) ? $.cookie("ding_toggle_format") : 'short';
+        }
+        else {
+          format = ($.cookie("ding_toggle_format")) ? $.cookie("ding_toggle_format") : 'long';
+        }
         Drupal.setFormat(format);
       });
     }
@@ -32,4 +38,3 @@
   };
 
 } (jQuery));
-
